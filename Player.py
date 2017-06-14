@@ -2,8 +2,8 @@
 class Player:
     def __init__(self):
         self.userChar = {1: "X", -1: "O", 0: "_"}
-        self.player_marker = ''
-        self.bot_marker = ''
+        self.player_marker = 'X'
+        self.bot_marker = 'O'
         self.player_name = ''
         self.bot_name = 'TBot'
 

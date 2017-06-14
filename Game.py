@@ -7,7 +7,7 @@ class Game:
     def __init__(self):
         self.board = Board()
         self.turn = 0
-        self.marker = ""
+        self.marker = "X"
         self.player = Player()
 
 
@@ -82,6 +82,62 @@ class Game:
         # when you break out of the loop, end the game
         self.end_game()
 
+    # def enter_game_loop2(self, turn, user_input):
+    #     "starts the main game loop"
+    #     is_running = True
+    #     player = 'h'  # h for human, b for bot
+    #     while is_running:
+    #         if player == 'h':
+    #             # user_input = self.board.get_player_move()
+    #             user_input = int(user_input)
+    #             self.board.make_move(user_input, self.player.player_marker)
+    #             if self.board.is_winner(self.player.player_marker):
+    #                 self.board.print_board()
+    #                 return "\n\tCONGRATULATIONS %s, YOU HAVE WON THE GAME!!! \\tn"
+    #                 # % self.player.player_name)
+    #                 # self.incr_score(self.player_name)
+    #                 is_running = False
+    #                 # break
+    #             else:
+    #                 if self.board.is_board_full():
+    #                    return board.print_board()
+    #                     # print("\n\t-- Match Draw --\t\n")
+    #                     is_running = False
+    #                     # break
+    #                 else:
+    #                     return board.print_board()
+    #                     player = 'b'
+    #         # bot's turn to play
+    #         else:
+    #             bot_move = self.board.get_bot_move(self.player.bot_marker)
+    #             self.board.make_move(bot_move, self.player.bot_marker)
+    #             if self.board.is_winner(self.player.bot_marker):
+    #                 self.board.print_board()
+    #                 return "\n\t%s HAS WON!!!!\t\n"
+    #                 # self.incr_score(self.bot_name)
+    #                 is_running = False
+    #                 break
+    #             else:
+    #                 if self.board.is_board_full():
+    #                     self.board.print_board()
+    #                     return "\n\t -- Match Draw -- \n\t"
+    #                     is_running = False
+    #                     break
+    #                 else:
+    #                     self.board.print_board()
+    #                     player = 'h'
+    #
+    #     # when you break out of the loop, end the game
+    #     self.end_game()
+
+    def human_move(self, user_input):
+        user_input = int(user_input)
+        self.board.make_move(user_input, self.player.player_marker)
+
+    def bot_move(self):
+        bot_move = self.board.get_bot_move(self.player.bot_marker)
+        self.board.make_move(bot_move, self.player.bot_marker)
+
     def quit_game(self):
         "exits game"
         self.board.print_board()
@@ -89,7 +145,7 @@ class Game:
         sys.exit()
 
     def help(self):
-        return "\n\t The game board has 9 sqaures(3X3). \n\t Two players take turns in marking the spots/grids on the board. \n\t The first player to have 3 pieces in a horizontal, vertical or diagonal row wins the game. \n\t To place your mark in the desired square, simply type the number corresponding with the square on the grid \n\t Press q to quit \n "
+        return "\n\t The game board has 9 sqaures(3X3). \n\t Two players take turns in marking the spots/grids on the board. \n\t The first player to have 3 pieces in a horizontal, vertical or diagonal row wins the game. \n\t To place your mark in the desired square, simply type the number corresponding with the square on the grid \n\t Press q to quit \n"
 
 
 
